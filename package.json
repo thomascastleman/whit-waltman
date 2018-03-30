@@ -1,0 +1,19 @@
+{
+  "name": "whit-waltman",
+  "version": "1.0.0",
+  "description": "An application to test if people can differentiate Walt Whitman and Whit Waltman",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomascastleman/whit-waltman.git"
+  },
+  "author": "Thomas Castleman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomascastleman/whit-waltman/issues"
+  },
+  "homepage": "https://github.com/thomascastleman/whit-waltman#readme"
+}
