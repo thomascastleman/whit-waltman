@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Whit Waltman</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#yes').click(function() {
+				$('[name=guess]').val("yesWhitman");
+			});
+
+			$('#no').click(function() {
+				$('[name=guess]').val("noWhitman");
+			});
+		});
+	</script>
+</head>
+<body>
+	<p>{{text}}</p>
+
+	<form method="POST" action="/grade">
+		<input id="yes" type="submit" value="Whitman">
+		<input id="no" type="submit" value="Not Whitman">
+		<input name="guess" type="hidden">
+		<input name="passage_id" type="hidden" value="{{passage_id}}">
+		<input name="full_passage" type="hidden" value="{{text}}">
+	</form>
+</body>
+</html>
