@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/thomascastleman/whit-waltman/issues"
   },
-  "homepage": "https://github.com/thomascastleman/whit-waltman#readme"
+  "homepage": "https://github.com/thomascastleman/whit-waltman#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mustache-express": "^1.2.5",
+    "string-markov-js": "^1.2.1"
+  }
 }
