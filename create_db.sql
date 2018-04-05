@@ -17,6 +17,7 @@ CREATE TABLE responses (
 	count INT
 );
 
+-- set up response table
 INSERT INTO responses (description, count) VALUES
 ("correct", 0),
 ("incorrect", 0);

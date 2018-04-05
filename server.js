@@ -11,16 +11,15 @@ app.engine('html', mustacheExpress());
 app.use('/', express.static('views'));
 
 var whitman = markov.newDataSet();
-var ngram = 3;
+var ngram = 2;
 var files = [
 	// 'training/whitman_complete_poetry.txt',
 	// 'training/whitman_complete_prose.txt',
 	// 'training/whitman_drum_taps.txt',
 	'training/whitman_leaves_grass.txt'
 ];
-
-// 50 words in a passageSize
-var passageSize = 100;
+var fullSentences;
+var passageSize = 100;	// number of words in a passage
 
 // train the chain
 function train(callback) {
@@ -28,17 +27,28 @@ function train(callback) {
 
 	// train on all whitman files
 	whitman.trainOnFile(files, ngram, true, function() {
+		// split into whitman lines
+		fullSentences = whitman.fullCorpus.split("\n");
 		callback();
 	});
 }
 
 function excerptWhitman() {
-	return "EXCERPT";
+	var excerpt = "";
+	var index = Math.floor(Math.random() * fullSentences.length);
+
+	// add new line while word amount not yet met
+	while (excerpt.split(" ").length < passageSize) {
+		excerpt += fullSentences[index++] + '\n';
+	}
+
+	return excerpt;
 }
 
 // generate whitman text
 function generateWhitman() {
 	return whitman.generate(passageSize, true);
+
 }
 
 app.get('/', function(req, res) {
@@ -94,6 +104,8 @@ app.get('*', function(req, res) {
 
 app.listen(8080, function() {
 	console.log("Whit Waltman is listening on port 8080");
+
+	db.clearPassages();
 
 	// train markov chain on server start
 	train(function() {

@@ -71,5 +71,14 @@ module.exports = {
 				accuracy: cor / (cor + inc) * 100
 			});
 		});
+	},
+
+	clearPassages: function() {
+		con.query('DELETE FROM passages;', function(err, res) {
+			if (err) throw err;
+			con.query('ALTER TABLE passages AUTO_INCREMENT = 1;', function(err, res) {
+				if (err) throw err;
+			});
+		});
 	}
 }
