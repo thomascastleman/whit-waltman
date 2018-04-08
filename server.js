@@ -19,7 +19,7 @@ var files = [
 	'training/whitman_leaves_grass.txt'
 ];
 var fullSentences;
-var passageSize = 100;	// number of words in a passage
+var passageSize = 60;	// number of words in a passage
 
 // train the chain
 function train(callback) {
@@ -82,7 +82,7 @@ app.post('/grade', function(req, res) {
 			renderObject.result = "You are correct";
 		} else {
 			db.incrementIncorrect();
-			renderObject.result = "You are NOT correct";
+			renderObject.result = "You are NOT correct! Get Whitman'd.";
 		}
 
 		// remove passage from db
